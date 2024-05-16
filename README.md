@@ -10,20 +10,21 @@
 
   ```
   sudo apt-get update
-  sudo apt install ros-noetic-hector-sensors-description \
-                   ros-noetic-joint-trajectory-controller \
-                   ros-noetic-urdf* \
-                   ros-noetic-robot-* \
-                   ros-noetic-controller-* \
-                   ros-noetic-gazebo-* \
-                   ros-noetic-ros-control \
-                   ros-noetic-ecl-threads \
-                   ros-noetic-hector-gazebo-plugins \
-                   ros-noetic-velodyne-simulator \
-                   ros-noetic-velodyne-description \
-                   ros-noetic-teleop-twist-keyboard \
-                   cmake build-essential libpcl-dev libeigen3-dev libopencv-dev libmatio-dev \
-                   python3-pip libboost-all-dev libtbb-dev liburdfdom-dev liborocos-kdl-dev
+  sudo apt install ros-noetic-urdf \
+                 ros-noetic-kdl-parser \
+                 ros-noetic-urdf-parser-plugin \
+                 ros-noetic-hardware-interface \
+                 ros-noetic-controller-manager \
+                 ros-noetic-controller-interface \
+                 ros-noetic-controller-manager-msgs \
+                 ros-noetic-control-msgs \
+                 ros-noetic-ros-control \
+                 ros-noetic-gazebo-* \
+                 ros-noetic-rqt-gui \
+                 ros-noetic-rqt-controller-manager \
+                 ros-noetic-plotjuggler* \
+                 cmake build-essential libpcl-dev libeigen3-dev libopencv-dev libmatio-dev \
+                 python3-pip libboost-all-dev libtbb-dev liburdfdom-dev liborocos-kdl-dev -y
   ```
 
 ## 2、编译
@@ -38,26 +39,3 @@ git clone https://github.com/limxdynamics/wheellegged-gazebo-ros.git
 cd ~/limx_ws
 catkin_make install
 ```
-
-## 3、运行
-
-- 运行`wheellegged-gazebo-ros`仿真的同时，还需要运行一个基于 [wheellegged-sdk-lowlevel](https://github.com/limxdynamics/wheellegged-sdk-lowlevel) 实现的运动控制算法程序。仿真运行流程如下图所示。
-
-![](doc/img.png)
-
-- 开启一个终端：运行仿真
-
-  ```
-  source /opt/ros/noetic/setup.bash
-  source install/setup.bash
-  roslaunch wheellegged_gazebo empty_world.launch
-  ```
-
-- 开启另一个终端：运行一个基于 [wheellegged-sdk-lowlevel](https://github.com/limxdynamics/wheellegged-sdk-lowlevel) 实现的运动控制算法程序
-
-  ```
-  limx@limx:~/wheellegged-sdk-lowlevel/build$ ./examples/wl_standup
-  ```
-
-- 运行效果如下：
-  ![](doc/simulator.gif)
