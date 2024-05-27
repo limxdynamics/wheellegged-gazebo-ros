@@ -4,7 +4,10 @@
     <param name="robot_description" command="cat $(find robot_description)/wheellegged/urdf/robot.urdf"/>
 
     <!-- We resume the logic in empty_world.launch, changing only the name of the world to be launched -->
-    <include file="$(find gazebo_ros)/launch/empty_world.launch"/>
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+        <arg name="world_name" value="$(find wheellegged_gazebo)/worlds/empty_world.world"/>
+        <arg name="paused" value="false"/>
+    </include>
 
     <!-- push robot_description to factory and spawn robot in gazebo -->
     <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" clear_params="true"
