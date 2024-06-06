@@ -89,6 +89,6 @@ namespace limxsdk
      */
     WheelleggedSim();
   };
-};
+}
 
 #endif
