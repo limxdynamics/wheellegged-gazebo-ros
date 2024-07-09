@@ -1,4 +1,4 @@
-# wheel-legged-gazebo-ros 仿真使用说明
+# wheellegged-gazebo-ros 仿真使用说明
 
 ## 1. 环境搭建
 
